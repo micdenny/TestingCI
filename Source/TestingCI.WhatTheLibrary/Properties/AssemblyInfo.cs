@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("TestingCI.WhatTheLibrary")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Just a project to test some CI service AppVeyor + Rultor")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Michael Denny")]
 [assembly: AssemblyProduct("TestingCI.WhatTheLibrary")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
