@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TestingCI.WhatTheLibrary
+﻿namespace TestingCI.WhatTheLibrary
 {
     public class WhatDidYouExpect
     {
@@ -13,6 +7,10 @@ namespace TestingCI.WhatTheLibrary
         }
 
         public void NoWay()
+        {
+        }
+
+        public void Michelangelo()
         {
         }
     }
