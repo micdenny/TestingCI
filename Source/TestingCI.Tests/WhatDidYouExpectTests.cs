@@ -15,5 +15,10 @@ namespace TestingCI.Tests
         public void No_way_I_gonna_help_you()
         {
         }
+
+        [TestMethod]
+        public void Test_michelangelo()
+        {
+        }
     }
 }
