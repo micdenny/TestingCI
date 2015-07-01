@@ -1,17 +1,20 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>$id$</id>
+    <id>TestingCI.Tests</id>
     <version>$version$</version>
-    <title>$title$</title>
-    <authors>$author$</authors>
-    <owners>$author$</owners>
+    <title>TestingCI.Tests</title>
+    <authors>Michael Denny</authors>
+    <owners>micdenny</owners>
     <licenseUrl>https://github.com/micdenny/TestingCI/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/micdenny/TestingCI</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>$description$</description>
+    <description>A project to test the continuous integration and deployment.</description>
     <releaseNotes></releaseNotes>
     <copyright>Copyright 2015</copyright>
-    <tags></tags>
+    <tags>Test</tags>
   </metadata>
+  <files>
+    <file src="..\build\$configuration$\TestingCI.Tests\lib\" target="lib\" />
+  </files>
 </package>

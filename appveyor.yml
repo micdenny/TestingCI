@@ -11,7 +11,16 @@ assembly_info:
   assembly_informational_version: '{version}'
   
 before_build:
-- nuget restore src\TestingCI.sln
+- nuget restore "src\TestingCI.sln"
 
 build:
+  project: src\TestingCI.sln
   verbosity: minimal
+
+after_build:
+- md "src\build\nuget"
+- nuget pack "src\nuget\TestingCI.WhatTheLibrary.nuspec" -version "%APPVEYOR_BUILD_VERSION%" -properties "configuration=%CONFIGURATION%" -OutputDirectory "src\build\nuget"
+
+artifacts:
+  - path: src\build\{configuration}
+  - path: src\build\nuget\*.nupkg
