@@ -15,6 +15,6 @@
     <tags>Test</tags>
   </metadata>
   <files>
-    <file src="..\build\$configuration$\TestingCI.Tests\lib\" target="lib\" />
+    <file src="..\build\$configuration$\TestingCI.WhatTheLibrary\lib\" target="lib\" />
   </files>
 </package>
