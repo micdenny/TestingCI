@@ -9,7 +9,7 @@
     <licenseUrl>https://github.com/micdenny/TestingCI/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/micdenny/TestingCI</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>A project to test the continuous integration and deployment.</description>
+    <description>Just a project to test some CI service AppVeyor + Rultor.</description>
     <releaseNotes></releaseNotes>
     <copyright>Copyright 2015</copyright>
     <tags>Test</tags>
