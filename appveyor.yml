@@ -1,26 +1,65 @@
-version: 1.0.{build}
+# configuration for "master" branch
+# build in Release mode and deploy to NuGet.org
+- version: 1.1.0
 
-configuration: Release
-platform: Any CPU
-
-assembly_info:
-  patch: true
-  file: '**\AssemblyInfo.*'
-  assembly_version: '{version}'
-  assembly_file_version: '{version}'
-  assembly_informational_version: '{version}'
+  branches:
+    only:
+    - master
   
-before_build:
-- nuget restore "src\TestingCI.sln"
+  configuration: Release
+  platform: Any CPU
+  
+  assembly_info:
+    patch: true
+    file: '**\AssemblyInfo.*'
+    assembly_version: '{version}'
+    assembly_file_version: '{version}'
+    assembly_informational_version: '{version}'
+    
+  before_build:
+  - nuget restore "src\TestingCI.sln"
+  
+  build:
+    project: src\TestingCI.sln
+    verbosity: minimal
+  
+  after_build:
+  - md "src\build\nuget"
+  - nuget pack "src\nuget\TestingCI.WhatTheLibrary.nuspec" -version "%APPVEYOR_BUILD_VERSION%" -properties "configuration=%CONFIGURATION%" -OutputDirectory "src\build\nuget"
+  
+  artifacts:
+    - path: src\build\{configuration}
+    - path: src\build\nuget\*.nupkg
+  
+# configuration for "development" branch
+# build in Debug mode and deploy to MyGet.org as pre-release
+- version: 1.1.0-alpha1+{build}
 
-build:
-  project: src\TestingCI.sln
-  verbosity: minimal
-
-after_build:
-- md "src\build\nuget"
-- nuget pack "src\nuget\TestingCI.WhatTheLibrary.nuspec" -version "%APPVEYOR_BUILD_VERSION%" -properties "configuration=%CONFIGURATION%" -OutputDirectory "src\build\nuget"
-
-artifacts:
-  - path: src\build\{configuration}
-  - path: src\build\nuget\*.nupkg
+  branches:
+    only:
+    - develop
+  
+  configuration: Debug
+  platform: Any CPU
+  
+  assembly_info:
+    patch: true
+    file: '**\AssemblyInfo.*'
+    assembly_version: '{version}'
+    assembly_file_version: '{version}'
+    assembly_informational_version: '{version}'
+    
+  before_build:
+  - nuget restore "src\TestingCI.sln"
+  
+  build:
+    project: src\TestingCI.sln
+    verbosity: minimal
+  
+  after_build:
+  - md "src\build\nuget"
+  - nuget pack "src\nuget\TestingCI.WhatTheLibrary.nuspec" -version "%APPVEYOR_BUILD_VERSION%" -properties "configuration=%CONFIGURATION%" -OutputDirectory "src\build\nuget"
+  
+  artifacts:
+    - path: src\build\{configuration}
+    - path: src\build\nuget\*.nupkg
