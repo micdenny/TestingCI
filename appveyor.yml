@@ -75,3 +75,16 @@
     name: MyGet Private TestingCI (micdenny)
     on:
       branch: develop
+
+# "fall back" configuration for all other branches
+# no "branches" section defined
+# do not deploy at all
+- configuration: Debug
+  platform: Any CPU
+
+  before_build:
+  - nuget restore "src\TestingCI.sln"
+  
+  build:
+    project: src\TestingCI.sln
+    verbosity: minimal
