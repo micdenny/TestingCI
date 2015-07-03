@@ -30,6 +30,12 @@
   artifacts:
     - path: src\build\{configuration}
     - path: src\build\nuget\*.nupkg
+	
+  deploy:
+  - provider: Environment
+    name: MyGet Private TestingCI (micdenny)
+    on:
+      branch: master
   
 # configuration for "development" branch
 # build in Debug mode and deploy to MyGet.org as pre-release
@@ -63,3 +69,9 @@
   artifacts:
     - path: src\build\{configuration}
     - path: src\build\nuget\*.nupkg
+	
+  deploy:
+  - provider: Environment
+    name: MyGet Private TestingCI (micdenny)
+    on:
+      branch: develop
